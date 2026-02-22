@@ -42,6 +42,19 @@ function TutorialsList() {
     };
 
     const removeAllTutorials = () => {
+        console.log("removeAllTutorials invoked, tutorials.length=", tutorials.length);
+
+        // always ask for confirmation regardless of list state
+        if (!window.confirm("This will delete every tutorial (if any). Continue?")) {
+            return; // user cancelled
+        }
+
+        if (tutorials.length === 0) {
+            // nothing to do, but let user know
+            alert("There are no tutorials to remove.");
+            return;
+        }
+
         tutorialService.removeAll()
             .then((response) => {
                 console.log(response.data);
@@ -120,6 +133,7 @@ function TutorialsList() {
                 )}
 
                 <h4 className="font-bold text-lg mb-2">Tutorials List</h4>
+                <p className="text-sm mb-2">Loaded {tutorials.length} tutorials</p>
                 <ul className="divide-y divide-gray-200 border border-gray-200 rounded">
                     {tutorials &&
                         tutorials.map((tutorial, index) => (
