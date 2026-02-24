@@ -16,6 +16,7 @@ Features
   - Search validation with error messages
   - "No results found" feedback
   - Clear search button
+  - Tutorial count feature - Shows number of loaded tutorials
   - Remove All validation - Prompts user when trying to delete from an empty list
 
 Tech Stack
