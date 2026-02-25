@@ -19,6 +19,17 @@ Features
   - Tutorial count feature - Shows number of loaded tutorials
   - Remove All validation - Prompts user when trying to delete from an empty list
 
+Frontend behaviour
+
+- IDs returned from the API may be either id or _id. The UI normalizes
+  both so components always work with id.
+- Tutorials cannot be published until both title and description are filled in;
+  the “Publish” button is disabled and the user is shown an explanatory tooltip
+  or error message.
+- Search bar requires non‑empty input. If the database is empty the search
+  control reports “No tutorials added yet”; otherwise it reports “No tutorials
+  found” when there are no matches.
+
 Tech Stack
 
 - Frontend:React, Vite, Tailwind CSS, React Router
